@@ -10,7 +10,7 @@ from .skill_base import Skill
 
 class GreetSkill(Skill):
     name = "greet"
-    description = "Greet the user and learn/keep in memory first name."
+    description = "Salue l'utilisateur et apprend/retiens son prénom."
     priority = 10 # After the router but before other skills if needed.
 
     def can_handle(self, user_text: str) -> bool:

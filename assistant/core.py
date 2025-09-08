@@ -12,7 +12,7 @@ class Assistant:
 
     def __init__(self, skills: List[Skill]) -> None:
         self.memory = Memory()
-        self.skills = skills
+        self.skills = sorted(skills, key=lambda s: getattr(s, "priority", 100))
 
     def respond(self, user_text: str) -> str:
         text = user_text.strip()

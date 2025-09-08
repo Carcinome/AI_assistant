@@ -21,6 +21,6 @@ class HelpSkill(Skill):
         lines = ["Capacités disponibles :"]
         for skill_name, desc in self.registry.items():
             lines.append(f"- {skill_name}: {desc}")
-        lines.append("Presse 'quit' pour quitter.")
+        lines.append("Pressez 'quit' pour quitter.")
         return "\n".join(lines)
 
