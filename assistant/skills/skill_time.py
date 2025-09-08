@@ -26,4 +26,4 @@ class TimeSkill(Skill):
 
     def handle(self, user_text: str, memory: dict[str, Any]) -> str:
         now = datetime.now()
-        return f"Il est {now:%Hh%M}."
+        return f"Il est {now:%H:%M}."

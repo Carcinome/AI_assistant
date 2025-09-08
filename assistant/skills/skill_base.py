@@ -10,6 +10,7 @@ from typing import Any, Dict
 class Skill(ABC):
     name: str = "base"
     description: str = "Base class for all skills."
+    priority: int = 100 # Lower is higher priority.
 
     @abstractmethod
     def can_handle(self, user_text: str) -> bool:
