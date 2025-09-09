@@ -8,16 +8,20 @@ from assistant.skills.skill_help import HelpSkill
 from assistant.skills.skill_time import TimeSkill
 from assistant.skills.skill_greet import GreetSkill
 from assistant.skills.skill_router import RegexIntentRouterSkill
+from assistant.skills.skill_caps import CapsSkill
 
 
 def build_assistant() -> Assistant:
-    # Instanciation of the bases skills.
-    greet = GreetSkill()
+    # Instanciation of the base skills.
+    greet_skill = GreetSkill()
     time_skill = TimeSkill()
+    caps_skill = CapsSkill()
+
     # Build a registry name -> description to inject in HelpSkill.
     registry = {
-        greet.name: greet.description,
-        TimeSkill.name: TimeSkill.description,
+        greet_skill.name: greet_skill.description,
+        time_skill.name: time_skill.description,
+        caps_skill.name: caps_skill.description,
         "help": "Liste les commandes disponibles.",
         "router": "Route les requêtes selon l'intention (priorité maximale).",
     }
@@ -25,8 +29,9 @@ def build_assistant() -> Assistant:
 
     # Build the intent_map for the router.
     intent_map = {
-        "greet": greet,
+        "greet": greet_skill,
         "time": time_skill,
+        "caps": caps_skill,
         "help": help_skill,
     }
     router = RegexIntentRouterSkill(intent_map=intent_map)
@@ -34,8 +39,9 @@ def build_assistant() -> Assistant:
     # Important: Include skills and let the core list there by priority.
     skills = [
         router,
-        greet,
+        greet_skill,
         time_skill,
+        caps_skill,
         help_skill
     ]
     return Assistant(skills=skills)

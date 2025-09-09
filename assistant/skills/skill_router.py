@@ -30,6 +30,11 @@ class RegexIntentRouterSkill(Skill):
             # Help.
             (re.compile(r"\b(help|\?|aide)\b", re.IGNORECASE), "help"),
         ]
+        self._patterns += [
+            # Caps (for testing).
+            (re.compile(r"^\s*caps\s+(?P<payload>.+)$", re.IGNORECASE), "caps"),
+            (re.compile(r"^\s*crie\s+(?P<payload>.+)$", re.IGNORECASE), "caps"),
+        ]
 
     def can_handle(self, user_text: str) -> bool:
         text = user_text.strip()
