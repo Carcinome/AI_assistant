@@ -1,5 +1,5 @@
 """
-Skill for learn first name and salute.
+Skill to learn first name and salute.
 """
 
 
