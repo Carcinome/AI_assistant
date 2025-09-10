@@ -19,6 +19,9 @@ class Assistant:
         if not text:
             return "Je n'ai rien reçu. Pouvez-vous reformuler ?"
 
+        # Save history.
+        self.memory.add_history("user", text)
+
         # Fast interns commands.
         if text.lower() in {"quit", "exit", "bye", "au revoir"}:
             return "__EXIT__"
@@ -26,10 +29,13 @@ class Assistant:
         # Search a skill it can be handled.
         for skill in self.skills:
             if skill.can_handle(text):
-                return skill.handle(text, self.memory._cache)
+                reply = skill.handle(text, self.memory._cache)
+                self.memory.add_history("assistant", reply)
+                self.memory.increment_counter(skill.name)
+                return reply
 
-        # Fallback if nothing respond.
-        return "Je n'ai pas encore cette capacité. Tapez 'help' pour voir les commandes."
-
+        reply = "Je n'ai pas encore cette capacité. Tapez 'help' pour voir les commandes."
+        self.memory.add_history("assistant", reply)
+        return reply
 
 

@@ -43,7 +43,7 @@ class Memory:
         self._write_json_memory(self._cache)
 
     # History added here.
-    def add_history(self, speaker: str, text: strp) -> None:
+    def add_history(self, speaker: str, text: str) -> None:
         entry = {"speaker": speaker, "text": text}
         self._cache.setdefault("history", []).append(entry)
         self._write_json_memory(self._cache)

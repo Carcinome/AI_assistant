@@ -1,1 +1,178 @@
-{}
+{
+  "history": [
+    {
+      "speaker": "user",
+      "text": "Salut !"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Bonjour ! Quel est votre prénom ? (Vous pouvez dire : 'Je m'appelle <VotrePrenom>')"
+    },
+    {
+      "speaker": "user",
+      "text": "Clément"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Je n'ai pas encore cette capacité. Tapez 'help' pour voir les commandes."
+    },
+    {
+      "speaker": "user",
+      "text": "Je m'appelle Clément"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Bonjour Clément !"
+    },
+    {
+      "speaker": "user",
+      "text": "todo apprendre Python"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Utilisez 'todo ajouter <texte>', 'todo liste' ou 'todo supprimer <texte>'."
+    },
+    {
+      "speaker": "user",
+      "text": "todo ajouter apprendre Python"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Tâche ajoutée: apprendre Python."
+    },
+    {
+      "speaker": "user",
+      "text": "todo liste"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Vos tâches :\n- apprendre Python"
+    },
+    {
+      "speaker": "user",
+      "text": "Salut !"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Bonjour Clément !"
+    },
+    {
+      "speaker": "user",
+      "text": "Donne moi la date stp"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Nous sommes le 10/09/2025."
+    },
+    {
+      "speaker": "user",
+      "text": "todo ajouter faire le plein d'esseence"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Tâche ajoutée: faire le plein d'esseence."
+    },
+    {
+      "speaker": "user",
+      "text": "todo supprimer faire le plein d'eessence"
+    },
+    {
+      "speaker": "assistant",
+      "text": "La tâche 'faire le plein d'eessence' n'est pas dans votre liste."
+    },
+    {
+      "speaker": "user",
+      "text": "todo list"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Utilisez 'todo ajouter <texte>', 'todo liste' ou 'todo supprimer <texte>'."
+    },
+    {
+      "speaker": "user",
+      "text": "todo liste"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Vos tâches :\n- apprendre Python\n- faire le plein d'esseence"
+    },
+    {
+      "speaker": "user",
+      "text": "todo supprimer faire le plein d'esseence"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Tâche supprimée : faire le plein d'esseence."
+    },
+    {
+      "speaker": "user",
+      "text": "Salut !"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Bonjour Clément !"
+    },
+    {
+      "speaker": "user",
+      "text": "Date stp"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Nous sommes le 10/09/2025."
+    },
+    {
+      "speaker": "user",
+      "text": "Heure stp"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Il est 15:03."
+    },
+    {
+      "speaker": "user",
+      "text": "Heure enculé"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Il est 15:03."
+    },
+    {
+      "speaker": "user",
+      "text": "todo ajouter Faire le ménage"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Tâche ajoutée: Faire le ménage."
+    },
+    {
+      "speaker": "user",
+      "text": "todo list"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Utilisez 'todo ajouter <texte>', 'todo liste' ou 'todo supprimer <texte>'."
+    },
+    {
+      "speaker": "user",
+      "text": "todo liste"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Vos tâches :\n- apprendre Python\n- Faire le ménage"
+    }
+  ],
+  "last_intent": "time",
+  "last_entities": {},
+  "counters": {
+    "router": 6,
+    "todo": 11,
+    "time": 2
+  },
+  "user_name": "Clément",
+  "preferences": {
+    "todos": [
+      "apprendre Python",
+      "Faire le ménage"
+    ]
+  }
+}

@@ -9,6 +9,7 @@ from assistant.skills.skill_time import TimeSkill
 from assistant.skills.skill_greet import GreetSkill
 from assistant.skills.skill_router import RegexIntentRouterSkill
 from assistant.skills.skill_caps import CapsSkill
+from assistant.skills.skill_todo import TodoSkill
 
 
 def build_assistant() -> Assistant:
@@ -16,12 +17,14 @@ def build_assistant() -> Assistant:
     greet_skill = GreetSkill()
     time_skill = TimeSkill()
     caps_skill = CapsSkill()
+    todo_skill = TodoSkill()
 
     # Build a registry name -> description to inject in HelpSkill.
     registry = {
         greet_skill.name: greet_skill.description,
         time_skill.name: time_skill.description,
         caps_skill.name: caps_skill.description,
+        todo_skill.name: todo_skill.description,
         "help": "Liste les commandes disponibles.",
         "router": "Route les requêtes selon l'intention (priorité maximale).",
     }
@@ -32,6 +35,7 @@ def build_assistant() -> Assistant:
         "greet": greet_skill,
         "time": time_skill,
         "caps": caps_skill,
+        "todo": todo_skill,
         "help": help_skill,
     }
     router = RegexIntentRouterSkill(intent_map=intent_map)
@@ -42,12 +46,13 @@ def build_assistant() -> Assistant:
         greet_skill,
         time_skill,
         caps_skill,
+        todo_skill,
         help_skill
     ]
     return Assistant(skills=skills)
 
 def run_cli() -> None:
-    print("Alfred v0.2 - Votre assistant personnel, à votre service. (Tapez 'help' pour obtenir de l'aide, 'quit' pour quitter.)")
+    print("Alfred v0.3 - Votre assistant personnel, à votre service. (Tapez 'help' pour obtenir de l'aide, 'quit' pour quitter.)")
     assistant = build_assistant()
     while True:
         try:
