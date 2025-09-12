@@ -55,6 +55,28 @@ class CalcSkill(Skill):
         return t.startswith("calculer") or t.startswith("calcul") or t.startswith("calc")
 
     def _extract_expression(self, user_text: str) -> str:
+        m = re.match(r"(?:calculer|calcul|calc)\s+(.+)$", user_text.strip(), re.IGNORECASE)
+        return m.group(1) if m else ""
+
+    def handle(self, user_text: str, memory: Dict[str, Any]) -> str:
+        prefs = memory.setdefault("preferences", {})
+        perms = prefs.setdefault("permissions", {})
+        if not is_allowed(perms, USE_CALC):
+            return "Permission refusée : le calcul n'est pas autorisé."
+
+        expr = self._extract_expression(user_text)
+        if not expr:
+            return "Utilisez : 'calcul 2+2', 'calculer 2+2' ou 'calc 2 * 2'."
+
+        try:
+            tree = ast.parse(expr, mode="eval")
+            result = _eval_safe(tree)
+        except Exception as e:
+            return f"Expression invalide ou non autorisée : ({e})."
+
+        return f"{expr} = {result}"
+
+
 
 
 
