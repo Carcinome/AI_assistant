@@ -50,7 +50,7 @@ class FileSkill(Skill):
             files = [p.name for p in SAFE_DIR.iterdir() if p.is_file()]
             return "workspace/ :\n- " + "\n- ".join(files) if files else "Aucun fichier."
 
-        if cmd == "read" or "lecture":
+        if cmd in ("read", "lecture"):
             if not is_allowed(perms, READ_FS):
                 return "Vous n'avez pas la permission de lire le dossier."
             if len(parts) < 3:
@@ -60,8 +60,8 @@ class FileSkill(Skill):
                 return f"Le fichier '{path}' n'existe pas."
             return path.read_text(encoding="utf-8")
 
-        if cmd == "write" or "écriture":
-            if not is_allowed(perms, READ_FS):
+        if cmd in ("write", "écriture"):
+            if not is_allowed(perms, WRITE_FS):
                 return "Vous n'avez pas la permission de lire le dossier."
             if len(parts) < 3:
                 return "Utilisez 'file write <nom> <texte>' ou 'file écriture <nom> <texte>' pour éditer un fichier."
