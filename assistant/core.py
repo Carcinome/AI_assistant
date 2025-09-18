@@ -23,7 +23,7 @@ class Assistant:
 
         self.skills = sorted(skills, key=lambda s: getattr(s, "priority", 100))
 
-    def collect_due_reminders(self) -> List[str]:
+    def _collect_due_reminders(self) -> List[str]:
         """
         Return and remove due reminders.
         """
@@ -53,7 +53,7 @@ class Assistant:
 
         # Check reminders then before answering.
         notices = self._collect_due_reminders()
-        prefix = ("\n".joint(notices) + "\n") if notices else ""
+        prefix = ("\n".join(notices) + "\n") if notices else ""
 
         # Search a skill it can be handled.
         for skill in self.skills:

@@ -10,6 +10,10 @@ from assistant.skills.skill_greet import GreetSkill
 from assistant.skills.skill_router import RegexIntentRouterSkill
 from assistant.skills.skill_caps import CapsSkill
 from assistant.skills.skill_todo import TodoSkill
+from assistant.skills.skill_calc import CalcSkill
+from assistant.skills.skill_files import FileSkill
+from assistant.skills.skill_timer import TimerSkill
+
 
 
 def build_assistant() -> Assistant:
@@ -18,6 +22,9 @@ def build_assistant() -> Assistant:
     time_skill = TimeSkill()
     caps_skill = CapsSkill()
     todo_skill = TodoSkill()
+    calc_skill = CalcSkill()
+    file_skill = FileSkill()
+    timer_skill = TimerSkill()
 
     # Build a registry name -> description to inject in HelpSkill.
     registry = {
@@ -25,6 +32,9 @@ def build_assistant() -> Assistant:
         time_skill.name: time_skill.description,
         caps_skill.name: caps_skill.description,
         todo_skill.name: todo_skill.description,
+        calc_skill.name: calc_skill.description,
+        file_skill.name: file_skill.description,
+        timer_skill.name: timer_skill.description,
         "help": "Liste les commandes disponibles.",
         "router": "Route les requêtes selon l'intention (priorité maximale).",
     }
@@ -36,6 +46,9 @@ def build_assistant() -> Assistant:
         "time": time_skill,
         "caps": caps_skill,
         "todo": todo_skill,
+        "calc": calc_skill,
+        "file": file_skill,
+        "timer": timer_skill,
         "help": help_skill,
     }
     router = RegexIntentRouterSkill(intent_map=intent_map)
@@ -47,6 +60,9 @@ def build_assistant() -> Assistant:
         time_skill,
         caps_skill,
         todo_skill,
+        calc_skill,
+        file_skill,
+        timer_skill,
         help_skill
     ]
     return Assistant(skills=skills)
