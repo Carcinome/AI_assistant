@@ -159,12 +159,60 @@
     {
       "speaker": "assistant",
       "text": "Vos tâches :\n- apprendre Python\n- Faire le ménage"
+    },
+    {
+      "speaker": "user",
+      "text": "calc (3+4)*5"
+    },
+    {
+      "speaker": "user",
+      "text": "calc 4*5*20"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Expression invalide ou non autorisée : (module 'ast' has no attribute 'NUm')."
+    },
+    {
+      "speaker": "user",
+      "text": "calc (4*5(*20"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Expression invalide ou non autorisée : ('(' was never closed (<unknown>, line 1))."
+    },
+    {
+      "speaker": "user",
+      "text": "calc (4*5)*20"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Expression invalide ou non autorisée : (module 'ast' has no attribute 'NUm')."
+    },
+    {
+      "speaker": "user",
+      "text": "remind in 1 minute de boire de l'eau"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Utilisez : 'remind in 10 min <texte>', 'remind at YYYY-MM-DD HH:MM <texte>', 'reminders list', 'reminders clear'."
+    },
+    {
+      "speaker": "user",
+      "text": "remind in 1 min de boire de l'eau"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Rappel crée pour 2025-09-18T15:52 : de boire de l'eau"
+    },
+    {
+      "speaker": "user",
+      "text": "uit"
     }
   ],
-  "last_intent": "time",
+  "last_intent": "timer",
   "last_entities": {},
   "counters": {
-    "router": 6,
+    "router": 11,
     "todo": 11,
     "time": 2
   },
@@ -173,6 +221,13 @@
     "todos": [
       "apprendre Python",
       "Faire le ménage"
-    ]
+    ],
+    "permissions": {
+      "read_fs": false,
+      "write_fs": false,
+      "use_calc": true,
+      "use_timer": true
+    },
+    "reminders": []
   }
 }

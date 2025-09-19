@@ -1,5 +1,5 @@
 """
-Skill for testing memory of developer and try to make it easily.
+Skill for testing memory of a developer and try to make it easily.
 """
 
 

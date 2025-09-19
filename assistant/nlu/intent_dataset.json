@@ -1,0 +1,7 @@
+[
+  {"text": "bonjour", "intent": "greet"},
+  {"text": "salut", "intent": "greet"},
+  {"Text": "coucou", "intent": "greet"}
+
+
+]

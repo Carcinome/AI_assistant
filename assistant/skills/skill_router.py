@@ -22,7 +22,7 @@ class RegexIntentRouterSkill(Skill):
         self.intent_map = intent_map
         # List (pattern, intent_label).
         self._patterns: List[Tuple[Pattern[str], str]] = [
-            (re.compile(r"\b(onjour|salut|coucou|hello)\b", re.IGNORECASE), "greet"),
+            (re.compile(r"\b(bonjour|salut|coucou|hello)\b", re.IGNORECASE), "greet"),
             (re.compile(r"\b(je m'appelle|je me nomme)\s+(?P<name>[A-Za-zÀ-ÖØ-öø-ÿ\-]+)", re.IGNORECASE), "greet"),
             # Hour/date.
             (re.compile(r"\b(heure|il est quelle heure|time)\b", re.IGNORECASE), "time"),
@@ -34,6 +34,11 @@ class RegexIntentRouterSkill(Skill):
             # Caps (for testing).
             (re.compile(r"^\s*caps\s+(?P<payload>.+)$", re.IGNORECASE), "caps"),
             (re.compile(r"^\s*crie\s+(?P<payload>.+)$", re.IGNORECASE), "caps"),
+        ]
+        self._patterns += [
+            (re.compile(r"^\s*(calc|calcul|calculer)\s+.+$", re.IGNORECASE), "calc"),
+            (re.compile(r"^\s*file|fichier\s+.+$", re.IGNORECASE), "files"),
+            (re.compile(r"^\s*(remind|reminders)\s+.+$", re.IGNORECASE), "timer"),
         ]
 
     def can_handle(self, user_text: str) -> bool:
