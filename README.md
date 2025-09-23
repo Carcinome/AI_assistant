@@ -25,7 +25,8 @@ Créer le fichier de la skill, à placer dans `assistant/skills`.\
 
 Ensuite, prendre le skill suivant comme exemple :
 
-```# assistant/skills/skill_caps.py
+```python
+# assistant/skills/skill_caps.py
 from typing import Any, Dict
 from .skill_base import Skill
 
@@ -36,11 +37,11 @@ class CapsSkill(Skill):
 
     def can_handle(self, user_text: str) -> bool:
         text = user_text.strip().lower()
-        # Déclencheurs simples (tu en ajouteras autant que tu veux)
+        # Déclencheurs simples.
         return text.startswith("caps ") or text.startswith("crie ")
 
     def handle(self, user_text: str, memory: Dict[str, Any]) -> str:
-        # Retirer le mot-clé, puis upper()
+        # Retirer le mot-clé, puis upper().
         text = user_text.strip()
         if text.lower().startswith("caps "):
             payload = text[5:]
@@ -65,7 +66,7 @@ Les skills seront ainsi détectées par le **RegexIntentRouterSkill**.
 Dans `assistant/skills/skill_router.py`, préciser dans `self._patterns` 
 à la suite du pattern de base pour créer des modules et non juste un bloc :
 
-```
+```python
 self._patterns += [
     # Intention CAPS : "caps <texte>" ou "crie <texte>"
     (re.compile(r"^\s*caps\s+(?P<payload>.+)$", re.IGNORECASE), "caps"),
@@ -83,7 +84,7 @@ Déclarer la skill, l'enregistrer dans l'aide et relier l'intent `"caps"` à l'i
 
 Dans `main.py` :
 
-```
+```python
 from assistant.skills.skill_caps import CapsSkill
 # ...
 def build_assistant() -> Assistant:
@@ -124,11 +125,11 @@ la skill en question peut le récupérer proprement).
 
 Dans `CapsSkill.handle` on lit l'entity avant d'extraire "à la main" :
 
-```
+```python
 entities = memory.get("_router_entities") or {}
 payload = entities.get("payload")
 if not payload:
-    # fallback si appel direct sans router
+    # fallback si appel direct sans router.
     text = user_text.strip()
     if text.lower().startswith("caps "):
         payload = text[5:]
@@ -154,10 +155,10 @@ Pense-bête :
 
 #### Etape 6 :
 
-Ajouter un test minimal est un bon réflexe ingé IA. On automatise donc un test simple.\
+On automatise donc un test simple.\
 On crée un dossier `test/` à la racine du projet, dans lequel on vient créer `test_caps.py` :
 
-```
+```python
 # tests/test_caps.py
 from assistant.skills.skill_caps import CapsSkill
 
@@ -165,7 +166,7 @@ def test_caps_can_handle():
     s = CapsSkill()
     assert s.can_handle("caps bonjour")
     assert s.can_handle("crie la batcave")
-    assert not s.can_handle("bonjour")  # ne doit pas déclencher
+    assert not s.can_handle("bonjour")  # ne dois pas déclencher.
 
 def test_caps_handle_basic():
     s = CapsSkill()
