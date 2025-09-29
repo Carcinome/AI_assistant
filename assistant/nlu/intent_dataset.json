@@ -1,7 +1,33 @@
 [
   {"text": "bonjour", "intent": "greet"},
   {"text": "salut", "intent": "greet"},
-  {"Text": "coucou", "intent": "greet"}
+  {"text": "coucou", "intent": "greet"},
+  {"text": "je me nomme carci", "intent": "greet"},
 
+  {"text": "il est quelle heure", "intent": "time"},
+  {"text": "donne l'heure", "intent": "time"},
+  {"text": "quelle est la date du jour", "intent": "time"},
+  {"text": "peux-tu me dire l'heure qu'il est", "intent": "time"},
 
+  {"text": "aide", "intent": "help"},
+  {"text": "help", "intent": "help"},
+  {"text": "que peux-tu faire", "intent": "help"},
+  {"text": "liste tes capacités", "intent": "help"},
+
+  {"text": "ajoute acheter du lait à ma todo", "intent": "todo"},
+  {"text": "todo ajouter réviser python", "intent": "todo"},
+  {"text": "montre ma liste de tâches", "intent": "todo"},
+  {"text": "affiche mes todos", "intent": "todo"},
+
+  {"text": "calcule 2 + 2", "intent": "calc"},
+  {"text": "peux-tu faire 3*7", "intent": "calc"},
+  {"text": "fais le calcul (3+4)*5", "intent": "calc"},
+
+  {"text": "rappelle-moi dans 10 minutes", "intent": "timer"},
+  {"text": "remind in 2 min boire de l'eau", "intent": "timer"},
+  {"text": "affiche mes rappels", "intent": "timer"},
+
+  {"text": "liste les fichiers", "intent": "files"},
+  {"text": "peux-tu lire le fichier notes.txt", "intent": "files"},
+  {"text": "écris dans fichier journal.txt bonjour gotham", "intent": "files"}
 ]
