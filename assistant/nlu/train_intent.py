@@ -57,3 +57,17 @@ def main() -> None:
 
     pipe = build_pipeline()
     pipe.fit(x_train, y_train)
+
+    # Test set evaluation.
+    y_pred = pipe.predict(x_test)
+    print("=== Rapport de classification (test) ===")
+    print(classification_report(y_test, y_pred, digits=3))
+    print("=== Matrice de confusion (test) ===")
+    print(confusion_matrix(y_test, y_pred))
+
+    # Save the trained model.
+    joblib.dump(pipe, MODEL_PATH)
+    print(f"\n Modèle enregistré : {MODEL_PATH}")
+
+    if __name__ == "__main__":
+        main()
