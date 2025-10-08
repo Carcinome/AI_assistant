@@ -69,5 +69,5 @@ def main() -> None:
     joblib.dump(pipe, MODEL_PATH)
     print(f"\n Modèle enregistré : {MODEL_PATH}")
 
-    if __name__ == "__main__":
+if __name__ == "__main__":
         main()

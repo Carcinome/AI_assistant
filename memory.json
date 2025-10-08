@@ -207,6 +207,22 @@
     {
       "speaker": "user",
       "text": "uit"
+    },
+    {
+      "speaker": "user",
+      "text": "quit"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Au revoir !"
+    },
+    {
+      "speaker": "user",
+      "text": "quit"
+    },
+    {
+      "speaker": "assistant",
+      "text": "Au revoir !"
     }
   ],
   "last_intent": "timer",

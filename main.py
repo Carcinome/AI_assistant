@@ -13,7 +13,8 @@ from assistant.skills.skill_todo import TodoSkill
 from assistant.skills.skill_calc import CalcSkill
 from assistant.skills.skill_files import FileSkill
 from assistant.skills.skill_timer import TimerSkill
-
+from assistant.skills.skill_router import RegexIntentRouterSkill
+from assistant.skills.skill_router_ml import MLIntentRouterSkill
 
 
 def build_assistant() -> Assistant:
@@ -37,6 +38,7 @@ def build_assistant() -> Assistant:
         timer_skill.name: timer_skill.description,
         "help": "Liste les commandes disponibles.",
         "router": "Route les requêtes selon l'intention (priorité maximale).",
+        "router_ml": "Fallback ML (si les regex ne marchent pas)."
     }
     help_skill = HelpSkill(registry)
 
@@ -52,6 +54,9 @@ def build_assistant() -> Assistant:
         "help": help_skill,
     }
     router = RegexIntentRouterSkill(intent_map=intent_map)
+    router_ml = MLIntentRouterSkill(intent_map=intent_map,
+                                    model_path="nlu/models/intent_clf.joblib",
+                                    confidence_threshold=0.55)
 
     # Important: Include skills and let the core list there by priority.
     skills = [
